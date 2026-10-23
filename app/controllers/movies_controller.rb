@@ -12,7 +12,7 @@ class MoviesController < ApplicationController
 
     @sort_by = params[:sort_by]
     @movies = Movie.with_ratings(@ratings_to_show)
-    @movies = movies.order(@sort_by) if %w[title release_date].include?(@sort_by)
+    @movies = @movies.order(@sort_by) if %w[title release_date].include?(@sort_by)
   end
 
   # GET /movies/1 or /movies/1.json
